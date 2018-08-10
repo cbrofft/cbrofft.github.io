@@ -1,0 +1,31 @@
+---
+title: "Car Mileage Presentation"
+author: "Chris Brofft"
+date: "8/10/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(warn=-1)
+```
+
+## Understanding Gas Mileage
+
+Using MTCARS we will be plotting to understand the relationship
+of various factors to gas mileage
+
+We will plot the following:
+- We plot weight vs. mileage
+-  the number of cylinders and the amount of horsepower as the size of an individual point in the plot.
+
+## Visualizing the Data
+
+```{r plot, echo=FALSE}
+suppressPackageStartupMessages(library(plotly))
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), size = ~hp,
+        text = ~paste("Weight: ", wt, '<br>MPG:', mpg),
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Car Mileage Analysis")
+```
