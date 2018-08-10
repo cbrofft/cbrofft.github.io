@@ -1,0 +1,28 @@
+---
+title: "Simple Map Example"
+author: "Chris Brofft"
+date: "8/8/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## My First Leaflet Map
+### Penn State University Campus Map
+Create a leaflet map object.
+```{r cars}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+
+```
+
+
+Add a marker for Penn State University and place the marker on the map 
+```{r}
+PSUPopup <- c("<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Penn_State_text_logo.svg/2000px-Penn_State_text_logo.svg.png' width='510' height='332'</a>")
+map %>%
+   addTiles() %>%
+   addMarkers(lat=40.798189, lng=-77.859887, popup = PSUPopup)
+```
